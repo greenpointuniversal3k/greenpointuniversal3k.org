@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greenpoint Universal 3K — Help Greenpoint Families Grow</title>
+  <meta name="description" content="We're fighting to expand Universal 3K and Pre-K seats in Greenpoint, Brooklyn. Sign the petition and help our community grow." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --cream:   #f5f0e8;
+      --green:   #2d9e5f;
+      --gold:    #f5bc45;
+      --orange:  #e07b2a;
+      --pink:    #e8a0b0;
+      --blue:    #a8c0e0;
+      --dark:    #1a1a1a;
+      --text:    #2c2c2c;
+      --muted:   #5a5a5a;
+    }
+
+    /* ── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(245, 240, 232, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--green);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: #c86820 !important;
+      color: white !important;
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ───────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .blob-1 { width: 220px; height: 200px; background: var(--pink); top: 5%; left: -4%; border-radius: 60% 40% 55% 45%; }
+    .blob-2 { width: 200px; height: 220px; background: var(--blue); top: 4%; right: -3%; border-radius: 45% 55% 40% 60%; }
+    .blob-3 { width: 280px; height: 240px; background: var(--green); bottom: 6%; left: -5%; border-radius: 50% 50% 45% 55%; opacity: 0.4; }
+    .blob-4 { width: 240px; height: 200px; background: var(--gold); bottom: 5%; right: -4%; border-radius: 55% 45% 60% 40%; }
+
+    .hero-logo {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 32px;
+      animation: floatUp 0.8s ease both;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--orange);
+      margin-bottom: 16px;
+      animation: floatUp 0.9s ease 0.1s both;
+    }
+
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 12px;
+      animation: floatUp 0.9s ease 0.15s both;
+    }
+
+    .hero-title em {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.65;
+      margin: 20px auto 44px;
+      animation: floatUp 0.9s ease 0.25s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: floatUp 0.9s ease 0.35s both;
+    }
+
+    /* ── BUTTONS ────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+      box-shadow: 0 4px 20px rgba(224,123,42,0.35);
+    }
+
+    .btn-primary:hover {
+      background: #c86820;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(224,123,42,0.45);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--green);
+      border: 2.5px solid var(--green);
+    }
+
+    .btn-secondary:hover {
+      background: var(--green);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* ── DIVIDER ────────────────────────────────────────────── */
+    .divider {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--pink), var(--gold), var(--green), var(--blue));
+    }
+
+    /* ── SECTION BASE ───────────────────────────────────────── */
+    section {
+      padding: 100px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--dark);
+    }
+
+    .section-title em {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--green);
+    }
+
+    /* ── THE PROBLEM ────────────────────────────────────────── */
+    #problem {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .problem-text p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .problem-text p strong {
+      color: var(--dark);
+    }
+
+    .stat-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 20px;
+      padding: 28px 32px;
+      border-left: 6px solid var(--gold);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+
+    .stat-card:hover { transform: translateX(6px); }
+    .stat-card:nth-child(2) { border-left-color: var(--green); }
+    .stat-card:nth-child(3) { border-left-color: var(--orange); }
+
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── WHY IT MATTERS ─────────────────────────────────────── */
+    #why {
+      background: var(--dark);
+      max-width: 100%;
+      padding: 100px 40px;
+    }
+
+    #why .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    #why .section-label { color: var(--gold); }
+    #why .section-title { color: white; }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .benefit-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 32px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .benefit-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-4px);
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gold);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .benefit-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .benefit-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    /* ── PETITION / CTA ─────────────────────────────────────── */
+    #petition {
+      text-align: center;
+    }
+
+    .petition-box {
+      background: white;
+      border-radius: 32px;
+      padding: 72px 60px;
+      box-shadow: 0 16px 64px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .petition-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--gold), var(--orange), var(--green));
+    }
+
+    .petition-box .section-title {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+
+    .petition-box p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* ── INSTAGRAM ──────────────────────────────────────────── */
+    #social {
+      text-align: center;
+      padding-top: 0;
+    }
+
+    .instagram-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: white;
+      border: 2.5px solid var(--green);
+      border-radius: 50px;
+      padding: 16px 36px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 800;
+      font-size: 1.05rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(45,158,95,0.12);
+    }
+
+    .instagram-pill:hover {
+      background: var(--green);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(45,158,95,0.3);
+    }
+
+    .instagram-pill svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 40px;
+      font-size: 0.85rem;
+    }
+
+    footer strong { color: rgba(255,255,255,0.8); }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── ANIMATIONS ─────────────────────────────────────────── */
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+
+      .hero { padding: 100px 24px 60px; }
+      .hero-logo { width: 120px; height: 120px; }
+
+      #problem {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 60px 24px;
+      }
+
+      section { padding: 60px 24px; }
+      #why { padding: 60px 24px; }
+
+      .petition-box { padding: 48px 28px; }
+      .petition-box .section-title { font-size: 1.9rem; }
+
+      .blob-1, .blob-2, .blob-3, .blob-4 { opacity: 0.3; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Greenpoint Universal 3K</a>
+    <ul class="nav-links">
+      <li><a href="#problem">The Issue</a></li>
+      <li><a href="#why">Why It Matters</a></li>
+      <li><a href="#petition" class="nav-cta">Sign the Petition</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+
+    <img src="images/logo.png" alt="Greenpoint Universal 3K logo" class="hero-logo" />
+
+    <p class="hero-eyebrow">Greenpoint, Brooklyn</p>
+
+    <h1 class="hero-title">
+      Help Greenpoint<br>
+      Families <em>Grow</em>
+    </h1>
+
+    <p class="hero-sub">
+      We're fighting to bring Universal 3K &amp; Pre-K seats to every family
+      in Greenpoint — so our kids get a strong start, and our community stays together.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://c.org/hs75q8hJS9" target="_blank" rel="noopener" class="btn btn-primary">
+        ✍️ Sign the Petition
+      </a>
+      <a href="#problem" class="btn btn-secondary">
+        Learn More
+      </a>
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <!-- THE PROBLEM -->
+  <section id="problem">
+    <div class="problem-text">
+      <p class="section-label">The Problem</p>
+      <h2 class="section-title">Growing Families Need<br><em>Room to Grow</em></h2>
+      <p>
+        Greenpoint has always been a neighborhood where families put down roots.
+        That's part of what makes our community special.
+      </p>
+      <p>
+        But <strong>Greenpoint is growing</strong> — more housing, more families, and more demand
+        for early childhood education. Local providers are seeing it every day through
+        increased applications and longer waitlists.
+      </p>
+      <p>
+        <strong>There is a clear gap between demand and available Universal 3K in the neighborhood.</strong>
+        Without action, families will be forced to leave, inequality will widen,
+        and kids will miss out on critical early learning years.
+      </p>
+      <p>
+        Without Universal Childcare, families spend <strong>$20,000–$30,000 a year</strong> on
+        childcare — money that would otherwise drive economic growth right here in Greenpoint.
+      </p>
+    </div>
+
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-number">90K</div>
+        <div class="stat-desc">Applications NYC receives for early education programs every year</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~50%</div>
+        <div class="stat-desc">Of NYC neighborhoods don't have enough seats — Greenpoint is one of them</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">$20–30K</div>
+        <div class="stat-desc">What families pay per year for childcare without Universal 3K access</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WHY IT MATTERS -->
+  <div id="why">
+    <div class="inner">
+      <p class="section-label">Why It Matters</p>
+      <h2 class="section-title">Universal 3K is Good<br>for <em>Everyone</em></h2>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">👩‍💼</div>
+          <div class="benefit-title">More Families Can Work</div>
+          <div class="benefit-desc">Universal Childcare removes a massive barrier to employment for Greenpoint parents.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏪</div>
+          <div class="benefit-title">Local Businesses Thrive</div>
+          <div class="benefit-desc">Working families spend more in the neighborhood — supporting the shops and restaurants we love.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌱</div>
+          <div class="benefit-title">Every Child Gets a Strong Start</div>
+          <div class="benefit-desc">Early education promotes diversity and gives every child the foundation they need to succeed.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏘️</div>
+          <div class="benefit-title">Communities Stay Together</div>
+          <div class="benefit-desc">Families can afford to stay close to home, keeping Greenpoint's community fabric intact.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">⚖️</div>
+          <div class="benefit-title">Reduces Inequality</div>
+          <div class="benefit-desc">Universal access means no child's future is determined by their family's income.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <div class="benefit-title">Economic Growth</div>
+          <div class="benefit-desc">Every dollar invested in early education returns multiples to the local economy.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PETITION CTA -->
+  <section id="petition">
+    <div class="petition-box">
+      <p class="section-label">Take Action</p>
+      <h2 class="section-title">Add Your Voice.<br><em>Sign Today.</em></h2>
+      <p>
+        We're asking the city to expand access to Universal 3K seats in Greenpoint
+        so families can stay close to home and connected to the community they love.
+        It only takes 30 seconds.
+      </p>
+      <a href="https://c.org/hs75q8hJS9" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1.15rem; padding: 20px 48px;">
+        ✍️ Sign the Petition
+      </a>
+    </div>
+  </section>
+
+  <!-- SOCIAL -->
+  <section id="social">
+    <p style="color: var(--muted); margin-bottom: 20px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Follow Along</p>
+    <a href="https://instagram.com/greenpointuniversal3k" target="_blank" rel="noopener" class="instagram-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+      @greenpointuniversal3k
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <strong>Greenpoint Universal 3K</strong> &nbsp;·&nbsp;
+      Greenpoint, Brooklyn, NY &nbsp;·&nbsp;
+      <a href="https://instagram.com/greenpointuniversal3k" target="_blank" rel="noopener">@greenpointuniversal3k</a>
+    </p>
+    <p style="margin-top: 10px;">© 2025 Greenpoint Universal 3K. Made with ❤️ in Greenpoint.</p>
+  </footer>
+
+</body>
+</html>
